@@ -14,8 +14,8 @@ jobs:
         include:
           - build_target: linux
             os: ubuntu-latest
-          #- build_target: macos
-          #  os: macos-latest
+          - build_target: macos
+            os: macos-latest
           - build_target: windows
             os: windows-latest
     steps:
