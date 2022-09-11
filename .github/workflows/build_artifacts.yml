@@ -47,7 +47,7 @@ jobs:
         run: mv target/release/test-actions bin/test-actions-${{ matrix.build_target }}
       - name: Tarball Linux/MacOS binary
         if: matrix.os != 'windows-latest'
-        run: tar -czf bin/test-actions-${{ matrix.build_target }}{.tar.gz,}
+        run: tar --remove-files -czf bin/test-actions-${{ matrix.build_target }}{.tar.gz,}
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:

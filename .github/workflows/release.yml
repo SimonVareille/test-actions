@@ -23,10 +23,3 @@ jobs:
         with:
           files: bin/*/test-actions-*
           draft: true
-        # uses: rust-build/rust-build.action@v1.3.2
-        # env:
-        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # with:
-        #   RUSTTARGET: ${{ matrix.target }}
-        #   EXTRA_FILES: "README.md"
-        #   ARCHIVE_TYPES: ${{ matrix.archive }}
