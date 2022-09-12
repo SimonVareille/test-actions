@@ -45,9 +45,12 @@ jobs:
       - name: Renaming binaries [Others]
         if: matrix.os != 'windows-latest'
         run: mv target/release/test-actions bin/test-actions-${{ matrix.build_target }}
-      - name: Tarball Linux/MacOS binary
-        if: matrix.os != 'windows-latest'
+      - name: Tarball Linux binary
+        if: matrix.os == 'ubuntu-latest'
         run: tar --remove-files -czf bin/test-actions-${{ matrix.build_target }}{.tar.gz,}
+      - name: Zip MacOS binary
+        if: matrix.os == 'macos-latest'
+        run: zip -9r bin/test-actions-${{ matrix.build_target }}{.dmg,} .
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
