@@ -21,10 +21,10 @@ jobs:
       - name: Get tag message
         id: tag-message
         uses: ericcornelissen/git-tag-annotation-action@v2
+        run: echo "${{ steps.tag-message.outputs.git-tag-annotation }}" > ${{ github.workspace }}-RELEASE.txt
       - name: Upload releases
         uses: softprops/action-gh-release@v1
         with:
           files: bin/*/test-actions-*
-          body: |
-            ${{ steps.tag-message.outputs.git-tag-annotation }}
+          body_path: ${{ github.workspace }}-RELEASE.txt
           draft: true
