@@ -50,7 +50,7 @@ jobs:
         run: tar --remove-files -czf bin/test-actions-${{ matrix.build_target }}{.tar.gz,}
       - name: Zip MacOS binary
         if: matrix.os == 'macos-latest'
-        run: zip -9r bin/test-actions-${{ matrix.build_target }}{.dmg,} .
+        run: zip -9r bin/test-actions-${{ matrix.build_target }}{.zip,} .
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
