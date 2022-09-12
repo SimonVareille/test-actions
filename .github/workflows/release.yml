@@ -25,5 +25,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: bin/*/test-actions-*
-          body: ${{ steps.tag-message.outputs.git-tag-annotation }}
+          body: |
+            ${{ steps.tag-message.outputs.git-tag-annotation }}
           draft: true
